@@ -13,22 +13,14 @@
 
 ## 📋 Table of Contents
 
-- [🎯 Bounty Hunter](#-bounty-hunter)
-  - [📋 Table of Contents](#-table-of-contents)
-  - [⚡ Features](#-features)
-  - [🛠 Tech Stack](#-tech-stack)
-  - [🚀 Getting Started](#-getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [⚙️ Configuration](#️-configuration)
-  - [🔫 Usage](#-usage)
-    - [CLI Commands](#cli-commands)
-    - [Dashboard](#dashboard)
-  - [📡 API Reference](#-api-reference)
-    - [Bounties](#bounties)
-    - [Hunters](#hunters)
-  - [🤝 Contributing](#-contributing)
-  - [📄 License](#-license)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [API Reference](#-api-reference)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
@@ -167,6 +159,82 @@ curl -X POST http://localhost:3000/api/bounties \
   -H "Content-Type: application/json" \
   -d '{"title": "Fix login bug", "deadline": "2024-12-01"}'
 ```
+
+---
+
+## 📅 Changelog
+
+All notable changes to this project are documented here. Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+### [1.0.0] — 2024-11-20
+#### Added
+- Initial public release
+- Core bounty creation and tracking system
+- Hunter profiles with reputation scoring
+- REST API with full CRUD for bounties and hunters
+- Role-based access control (Admin, Hunter, Observer)
+- Real-time webhook notifications
+- Analytics dashboard
+- Docker support
+- CLI interface
+
+### [0.9.0-beta] — 2024-10-05
+#### Added
+- Beta release for internal testing
+- Basic CLI commands (`list`, `claim`, `complete`)
+- PostgreSQL integration via Prisma
+- JWT authentication
+
+#### Fixed
+- Race condition when two hunters claimed the same bounty simultaneously
+- Dashboard not loading correctly on Safari
+
+### [0.8.0-alpha] — 2024-08-18
+#### Added
+- Alpha version — core tracking logic
+- Initial database schema
+- Basic REST endpoints
+
+#### Known Issues
+- No auth layer yet
+- Webhook delivery unreliable under high load
+
+---
+
+## ❓ FAQ
+
+**Q: Preciso de Redis para rodar o projeto?**
+Redis é usado para cache e filas de notificação. Para desenvolvimento local, você pode desabilitá-lo definindo `DISABLE_CACHE=true` no `.env` — o projeto funcionará normalmente, porém sem notificações em tempo real.
+
+---
+
+**Q: Posso usar outro banco de dados além do PostgreSQL?**
+Atualmente não. O schema e algumas queries são específicos para PostgreSQL. Suporte a MySQL e SQLite está planejado para a v1.2.0.
+
+---
+
+**Q: Como faço para rodar os testes?**
+```bash
+npm run test        # todos os testes
+npm run test:unit   # apenas testes unitários
+npm run test:e2e    # testes end-to-end
+```
+Os testes E2E requerem um banco PostgreSQL rodando. Recomendamos usar o `docker-compose.test.yml` incluso no projeto.
+
+---
+
+**Q: A API tem rate limiting?**
+Sim. Por padrão, o limite é de **100 requisições por minuto** por IP. Você pode ajustar isso via `RATE_LIMIT_MAX` no `.env`.
+
+---
+
+**Q: É possível rodar sem Docker?**
+Sim, basta ter Node.js, PostgreSQL e Redis instalados localmente e seguir o guia de instalação manual na seção [Getting Started](#-getting-started).
+
+---
+
+**Q: Como contribuo com o projeto?**
+Veja a seção [Contributing](#-contributing) abaixo. Issues com a label `good first issue` são um ótimo ponto de entrada.
 
 ---
 
