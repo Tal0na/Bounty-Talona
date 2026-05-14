@@ -201,6 +201,54 @@ All notable changes to this project are documented here. Format based on [Keep a
 
 ---
 
+## 🏷️ Issue Labels
+
+Use these labels to categorize and organize issues in the repository:
+
+| Label              | Color       | Description                                         |
+| ------------------ | ----------- | --------------------------------------------------- |
+| `bug`              | 🔴 `#d73a4a` | Something isn't working as expected                 |
+| `feature`          | 🟣 `#a2eeef` | New feature request or enhancement                  |
+| `good first issue` | 🟢 `#7057ff` | Good for newcomers and first-time contributors      |
+| `help wanted`      | 🔵 `#008672` | Extra attention or community help needed            |
+| `documentation`    | 🟡 `#fef2c0` | Improvements or additions to documentation          |
+| `duplicate`        | ⚪ `#cfd3d7` | This issue or PR already exists                     |
+| `wontfix`          | ⚫ `#ffffff` | This will not be worked on                          |
+| `question`         | 🟤 `#d876e3` | Further information is requested                    |
+| `enhancement`      | 🔵 `#84b6eb` | Improvement to an existing feature                  |
+| `in progress`      | 🟠 `#e4e669` | Currently being worked on                           |
+| `blocked`          | 🔴 `#b60205` | Blocked by another issue or external dependency     |
+| `needs review`     | 🟣 `#9936c7` | PR or issue waiting for review                      |
+| `breaking change`  | 🔴 `#e11d48` | Introduces a breaking change to the API or behavior |
+| `performance`      | 🟢 `#0e8a16` | Related to performance improvements                 |
+| `security`         | 🔴 `#ee0701` | Security vulnerability or concern                   |
+
+### Como criar as labels no GitHub
+
+```bash
+# Instale o GitHub CLI se ainda não tiver
+brew install gh  # macOS
+# ou: https://cli.github.com
+
+# Autentique-se
+gh auth login
+
+# Crie as labels via script
+gh label create "bug"            --color "d73a4a" --description "Something isn't working"
+gh label create "feature"        --color "a2eeef" --description "New feature request"
+gh label create "good first issue" --color "7057ff" --description "Good for newcomers"
+gh label create "help wanted"    --color "008672" --description "Extra attention needed"
+gh label create "documentation"  --color "fef2c0" --description "Docs improvements"
+gh label create "in progress"    --color "e4e669" --description "Currently being worked on"
+gh label create "blocked"        --color "b60205" --description "Blocked by dependency"
+gh label create "needs review"   --color "9936c7" --description "Waiting for review"
+gh label create "breaking change" --color "e11d48" --description "Introduces breaking change"
+gh label create "performance"    --color "0e8a16" --description "Performance improvements"
+gh label create "security"       --color "ee0701" --description "Security concern"
+```
+
+---
+
 ## ❓ FAQ
 
 **Q: Preciso de Redis para rodar o projeto?**
